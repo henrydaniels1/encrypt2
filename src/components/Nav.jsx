@@ -1,64 +1,65 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { ethers } from 'ethers'
+// import { ethers } from 'ethers'
 import '../style/Nav.css'
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [account, setAccount] = useState(null)
+  // const [account, setAccount] = useState(null)
 
-  useEffect(() => {
-    const checkWalletConnection = async () => {
-      if (typeof window.ethereum !== 'undefined') {
-        try {
-          const provider = new ethers.BrowserProvider(window.ethereum)
-          const signer = await provider.getSigner()
-          const address = await signer.getAddress()
-          setAccount(address)
-        } catch (e) {
-          console.error('Failed to get wallet address:', e)
-        }
-      }
-    }
+  // useEffect(() => {
+  //   const checkWalletConnection = async () => {
+  //     if (typeof window.ethereum !== 'undefined') {
+  //       try {
+  //         const provider = new ethers.BrowserProvider(window.ethereum)
+  //         const signer = await provider.getSigner()
+  //         const address = await signer.getAddress()
+  //         setAccount(address)
+  //       } catch (e) {
+  //         console.error('Failed to get wallet address:', e)
+  //       }
+  //     }
+  //   }
 
-    const handleAccountsChanged = (accounts) => {
-      if (accounts.length === 0) {
-        setAccount(null) // User has disconnected the wallet
-      } else {
-        setAccount(accounts[0]) // Update to the first account
-      }
-    }
+  //   const handleAccountsChanged = (accounts) => {
+  //     if (accounts.length === 0) {
+  //       setAccount(null) // User has disconnected the wallet
+  //     } else {
+  //       setAccount(accounts[0]) // Update to the first account
+  //     }
+  //   }
 
-    checkWalletConnection()
+  //   checkWalletConnection()
 
-    // Event listener for account changes
-    if (typeof window.ethereum !== 'undefined') {
-      window.ethereum.on('accountsChanged', handleAccountsChanged)
-    }
+  //   // Event listener for account changes
+  //   if (typeof window.ethereum !== 'undefined') {
+  //     window.ethereum.on('accountsChanged', handleAccountsChanged)
+  //   }
 
-    // Cleanup event listener on unmount
-    return () => {
-      if (typeof window.ethereum !== 'undefined') {
-        window.ethereum.removeListener('accountsChanged', handleAccountsChanged)
-      }
-    }
-  }, [])
+  //   // Cleanup event listener on unmount
+  //   return () => {
+  //     if (typeof window.ethereum !== 'undefined') {
+  //       window.ethereum.removeListener('accountsChanged', handleAccountsChanged)
+  //     }
+  //   }
+  // }, [])
 
-  const connectWallet = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-      try {
-        await window.ethereum.request({ method: 'eth_requestAccounts' })
-        const provider = new ethers.BrowserProvider(window.ethereum)
-        const signer = await provider.getSigner()
-        const address = await signer.getAddress()
-        setAccount(address)
-      } catch (e) {
-        console.error('Failed to connect wallet:', e)
-      }
-    } else {
-      console.log('Please install MetaMask!')
-    }
-  }
+  // const connectWallet = async () => {
+  //   if (typeof window.ethereum !== 'undefined') {
+  //     try {
+  //       await window.ethereum.request({ method: 'eth_requestAccounts' })
+  //       const provider = new ethers.BrowserProvider(window.ethereum)
+  //       const signer = await provider.getSigner()
+  //       const address = await signer.getAddress()
+  //       setAccount(address)
+  //     } catch (e) {
+  //       console.error('Failed to connect wallet:', e)
+  //     }
+  //   } else {
+  //     console.log('Please install MetaMask!')
+  //   }
+  // }
 
   return (
     <div className='bg-gray-900'>
@@ -116,7 +117,7 @@ export const Nav = () => {
               </Link>
             </li>
           </ul>
-          <div className='flex items-center space-x-4'>
+          {/* <div className='flex items-center space-x-4'>
             {account ? (
               <p className='text-sm text-gray-100'>
                 Connected: {account.slice(0, 6)}...{account.slice(-4)}
@@ -148,7 +149,7 @@ export const Nav = () => {
                 />
               </svg>
             </button>
-          </div>
+          </div> */}
           {isMenuOpen && (
             <div className='absolute top-0 left-0 w-full z-50 bg-white'>
               <div className='p-5 border rounded shadow-sm'>

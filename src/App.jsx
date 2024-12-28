@@ -5,7 +5,8 @@ import Encrypt from './components/Encrypt';
 import { Blog } from './components/Blog';
 import { Feature } from './components/Body1';
 import Des from './components/Des.jsx'
-import WalletComponent from './components/Wallet.jsx'
+// import WalletComponent from './components/Wallet.jsx'
+
 // import { Web3Auth } from "./components/Web3Auth/Auth.jsx";  // Import Web3Auth component
 
 
@@ -14,8 +15,8 @@ export default function App() {
     <Router>
       <div>
         <Routes>
-          <Route path='/home' element={<Landing />} />
-          <Route path='/' element={<WalletComponent />} />
+          <Route path='/' element={<Landing />} />
+          {/* <Route path='/' element={<WalletComponent />} /> */}
           <Route path='/encryption' element={<Encrypt />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/feature' element={<Feature />} />

@@ -1,5 +1,5 @@
 // import { useState, useEffect } from 'react'
-import { useState } from 'react';
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 // import { ethers } from 'ethers'
 import '../style/Nav.css'
@@ -117,8 +117,8 @@ export const Nav = () => {
               </Link>
             </li>
           </ul>
-          {/* <div className='flex items-center space-x-4'>
-            {account ? (
+           <div className='flex items-center space-x-4'>
+            {/* {account ? (
               <p className='text-sm text-gray-100'>
                 Connected: {account.slice(0, 6)}...{account.slice(-4)}
               </p>
@@ -128,7 +128,7 @@ export const Nav = () => {
                 className='border border-teal-400 text-teal-400 px-4 py-2 rounded hover:bg-teal-400 hover:text-gray-900 transition'>
                 Connect Wallet
               </button>
-            )}
+            )} */}
             <button
               aria-label='Open Menu'
               title='Open Menu'
@@ -149,7 +149,7 @@ export const Nav = () => {
                 />
               </svg>
             </button>
-          </div> */}
+          </div> 
           {isMenuOpen && (
             <div className='absolute top-0 left-0 w-full z-50 bg-white'>
               <div className='p-5 border rounded shadow-sm'>
